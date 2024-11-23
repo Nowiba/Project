@@ -4,10 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1>Welcome to the Main Page!</h1>
-    <p>You have successfully logged in.</p>
+    <header>
+        <!-- Profile Display -->
+        <div class="profile-display">
+            <img id="main-profile-pic" src="default-avatar.png" alt="Profile Picture">
+            <p id="main-user-name">User Name</p>
+        </div>
+
+        <!-- Top Right Buttons -->
+        <div class="top-right-buttons">
+            <button id="logout-button" class="logout-btn">Logout</button>
+            <button id="settings-button" class="settings-btn">
+                <img src="settings.png" alt="Settings Icon">
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <h1>Welcome to the Main Page</h1>
+        <p>This is where the main content of the website will go.</p>
+    </main>
+
+    <script>
+        // Redirect to the settings page when the settings button is clicked
+        document.getElementById('settings-button').addEventListener('click', function() {
+            window.location.href = 'settings.html';
+        });
+
+        // Logout button functionality
+        document.getElementById('logout-button').addEventListener('click', function() {
+            // Instead of clearing localStorage, just set a flag or mark them as logged out
+            localStorage.setItem('isLoggedOut', true); // Set logout flag
+            window.location.href = 'index.html'; // Redirect to login page
+        });
+
+        // Load profile photo and name from localStorage
+        document.addEventListener('DOMContentLoaded', function () {
+            const loggedOut = localStorage.getItem('isLoggedOut') === 'true';
+            
+            if (loggedOut) {
+                // Remove logout flag so user is considered logged in the next time
+                localStorage.removeItem('isLoggedOut');
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const loggedInUser = users[users.length - 1]; // Assuming the last registered user is logged in
+
+            if (loggedInUser) {
+                const fullName = `${loggedInUser.firstName} ${loggedInUser.lastName}`;
+                document.getElementById('main-user-name').textContent = fullName;
+            }
+
+            // Load the profile photo from localStorage
+            const storedPhoto = localStorage.getItem('profilePhoto') || 'default-avatar.png'; // Use default if no photo saved
+            document.getElementById('main-profile-pic').src = storedPhoto;
+        });
+    </script>
 </body>
 </html>
-

@@ -1,0 +1,107 @@
+/* main.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Profile Display Section */
+.profile-display {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align photo and name */
+    text-align: center;
+}
+
+#main-profile-pic {
+    width: 100px; /* Slightly larger for better visibility */
+    height: 100px;
+    border-radius: 50%; /* Circular profile picture */
+    margin-bottom: 10px; /* Space between photo and name */
+    border: 2px solid #007bff; /* Blue border for emphasis */
+}
+
+#main-user-name {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #333; /* Darker text color for better readability */
+    margin: 0; /* No extra spacing around the name */
+    text-transform: capitalize; /* Automatically capitalize the name */
+}
+
+/* Top Right Buttons */
+.top-right-buttons {
+    display: flex;
+    align-items: center;
+}
+
+/* Logout Button */
+.logout-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+}
+
+.logout-btn:hover {
+    background-color: #000000;
+}
+
+/* Settings Button Styling */
+.settings-btn {
+    background-color: #007bff; /* Blue background */
+    border: none;
+    border-radius: 50%; /* Circular button */
+    padding: 15px; /* Adequate padding for a good clickable area */
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 100px;
+}
+
+.settings-btn img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for settings button */
+.settings-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Rotate the icon when hovering */
+.settings-btn:hover img {
+    transform: rotate(45deg);
+}
+
+/* Focus state for accessibility */
+.settings-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Main Section */
+main {
+    padding: 20px;
+    text-align: center;
+}
